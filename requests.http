@@ -1,0 +1,12 @@
+### GET USERS
+GET http://localhost:3000/users
+
+### ADD USERS
+POST http://localhost:3000/users
+content-type: application/json
+
+{
+  "firstName": "Sergey",
+  "lastName": "Savchuk",
+  "age": 32
+}

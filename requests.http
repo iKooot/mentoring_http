@@ -10,3 +10,14 @@ content-type: application/json
   "lastName": "Savchuk",
   "age": 32
 }
+
+### PATCH USER BY ID
+PATCH http://localhost:3000/users?id=ac8cc5daea34a13dfdae18d4
+content-type: application/json
+
+{
+  "job": "fullstack"
+}
+
+### DELETE USER BY ID
+DELETE http://localhost:3000/users?id=ac8cc5daea34a13dfdae18d4

@@ -26,11 +26,15 @@ server.on("request", (req, res) => {
     fs.createReadStream(path.join(__dirname, req.url)).pipe(res);
   } else if (req.url === "/index.js") {
     fs.createReadStream(path.join(__dirname, req.url)).pipe(res);
-  } else if (req.url === "/users") {
+  } else if (/^.*\/users.*$/.test(req.url)) {
     if ( req.method === "GET" ) {
       users.getUsers(req, res)
     } else if (req.method === "POST") {
       users.addUser(req, res)
+    } else if (req.method === "PATCH") {
+      users.updateUser(req, res)
+    } else if (req.method === "DELETE") {
+      users.deleteUser(req, res)
     } else {
       res.writeHead(405, { "Content-Type": "text/plain" });
       res.write("Method Not Allowed");
